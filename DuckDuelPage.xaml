@@ -15,6 +15,7 @@
 
             <ImageButton BackgroundColor="Green"
                 Source="{FontImage &#xf30c;, FontFamily=Ionicons, Size=100}" 
+                WidthRequest="50"
                 Clicked="OnExitButtonClicked"/>
         </HorizontalStackLayout>
         <!--<Button x:Name="BreadButton"

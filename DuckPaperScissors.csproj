@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0-ios;net6.0-maccatalyst;net6.0-android</TargetFrameworks>
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
+		<TargetFrameworks>net6.0-maccatalyst;net7.0-ios;net7.0-android</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
 		<OutputType>Exe</OutputType>
@@ -32,13 +32,12 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<!--<MauiIcon Include="Resources\AppIcon\appicon.svg" />
-		<MauiIcon Include="Resources\AppIcon\appiconfg.svg" />-->
-		<MauiIcon Include="Resources\AppIcon\minebasketducks.jpeg" Color="#FFA500">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</MauiIcon>
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" />
+		<MauiIcon Include="Resources\AppIcon\appiconfg.svg" />
+    <MauiIcon Include="Resources\AppIcon\minebasketducks.jpeg" Color="#FFA500"/>
 
 		<!-- Splash Screen -->
+    <MauiSplashScreen Include="Resources\Splash\letsgetthisbreadpigeon.jpeg" Color="#FFA500" BaseSize="128,128"/>
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -54,14 +53,11 @@
 	<ItemGroup>
 	  <None Remove="Resources\AppIcon\appicon.svg" />
 	  <None Remove="Resources\AppIcon\appiconfg.svg" />
-	  <!--<None Remove="Resources\Splash\splash.svg" />-->
+	  <None Remove="Resources\Splash\splash.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <MauiImage Include="Resources\AppIcon\minebasketducks.jpeg" />
-	  <MauiSplashScreen Include="Resources\Splash\letsgetthisbreadpigeon.jpeg" Color="#FFA500" BaseSize="128,128">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </MauiSplashScreen>
 	  <!--<MauiSplashScreen Include="Resources\Splash\splash.svg" />-->
 	</ItemGroup>
 
