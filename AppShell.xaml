@@ -6,9 +6,15 @@
     xmlns:local="clr-namespace:DuckPaperScissors"
     Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <TabBar>
+        <ShellContent
+            Title="Home"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="MainPage" />
 
+        <ShellContent
+            Title="Duel"
+            ContentTemplate="{DataTemplate local:DuckDuelPage}"
+            Route="DuckDuelPage" />
+    </TabBar>
 </Shell>

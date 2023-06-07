@@ -9,11 +9,19 @@
             Padding="30,0"
             VerticalOptions="Center">
 
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
+            <StackLayout
+                Orientation="Horizontal"
+                HorizontalOptions="Center"
+                >
+                <Image
+                    Source="dotnet_bot.png"
+                    SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                    HeightRequest="200" />
+
+                <Image Source="letsgetthisbreadpigeon.jpeg"
+                       SemanticProperties.Description="Duck"
+                       WidthRequest="200"/>
+            </StackLayout>
 
             <Label
                 Text="Hello, Duck World!"
@@ -35,6 +43,12 @@
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Center" />
 
+            <!--<Button
+                x:Name="NewDuelBtn"
+                Text="Click ME"
+                SemanticProperties.Hint="Duel"
+                Clicked="OnNewDuelClicked"
+                HorizontalOptions="Center" />-->
         </VerticalStackLayout>
     </ScrollView>
 

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DuckPaperScissors.DuckDuelPage"
+             Title="DuckDuelPage">
+    <ContentPage.Resources>
+
+    </ContentPage.Resources>
+    <StackLayout x:Name="vertStack">
+        <Label 
+            Text="Welcome to Duck Duel!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <!--<Button x:Name="BreadButton"
+                Text="Click me"
+                BackgroundColor="Blue"
+                SemanticProperties.Hint=""
+                Clicked="OnBreadClicked"
+                HorizontalOptions="Center"/>-->
+
+        <ImageButton x:Name="BreadButton"
+            Source="letsgetthisbreadpigeon.jpeg"
+            SemanticProperties.Hint=""
+            Clicked="OnBreadClicked"
+            VerticalOptions="Start"
+            Rotation="180"
+            HeightRequest="300"
+            Margin="25"/>
+
+        <!--<Image Source="minebasketducks.jpeg" />-->
+
+        <ImageButton x:Name="BasketButton"
+                Source="minebasketducks.jpeg"
+                SemanticProperties.Hint=""
+                Clicked="OnBasketClicked"
+                HorizontalOptions="Center"
+                VerticalOptions="End"
+                HeightRequest="300" 
+                Margin="25"/>
+
+        <!--<Button x:Name="BasketButton"
+                Text="Click me"
+                BackgroundColor="Red"
+                SemanticProperties.Hint=""
+                Clicked="OnBasketClicked"
+                HorizontalOptions="Center"/>-->
+    </StackLayout>
+</ContentPage>
