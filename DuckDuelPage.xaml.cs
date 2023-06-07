@@ -1,6 +1,3 @@
-using Microsoft.Maui.Controls;
-using System.Drawing;
-
 namespace DuckPaperScissors;
 
 public partial class DuckDuelPage : ContentPage
@@ -29,6 +26,11 @@ public partial class DuckDuelPage : ContentPage
         basketClickCounter++;
 
         BreadButton.RotateTo(90 * basketClickCounter);
+    }
+
+    private async void OnExitButtonClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("..");
 
     }
 }

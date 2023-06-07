@@ -43,12 +43,12 @@
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Center" />
 
-            <!--<Button
+            <Button
                 x:Name="NewDuelBtn"
-                Text="Click ME"
+                Text="Click ME to DUEL"
                 SemanticProperties.Hint="Duel"
                 Clicked="OnNewDuelClicked"
-                HorizontalOptions="Center" />-->
+                HorizontalOptions="Center" />
         </VerticalStackLayout>
     </ScrollView>
 
