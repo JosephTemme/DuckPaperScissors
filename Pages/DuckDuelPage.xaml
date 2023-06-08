@@ -7,16 +7,15 @@
 
     </ContentPage.Resources>
     <StackLayout x:Name="vertStack">
-        <HorizontalStackLayout>
+        <HorizontalStackLayout 
+            HorizontalOptions="Center">
             <Label 
                 Text="Welcome to Duck Duel!"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
+                VerticalOptions="Center" />
 
             <ImageButton BackgroundColor="Green"
-                Source="{FontImage &#xf30c;, FontFamily=Ionicons, Size=100}" 
-                WidthRequest="50"
-                Clicked="OnExitButtonClicked"/>
+                Source="{FontImage &#xf30c;, FontFamily=Ionicons, Size=50}" 
+                Clicked="OnExitButtonClicked" />
         </HorizontalStackLayout>
         <!--<Button x:Name="BreadButton"
                 Text="Click me"
