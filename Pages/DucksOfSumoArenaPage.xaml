@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:engine="clr-namespace:Orbit.Engine;assembly=Orbit.Engine"
              x:Class="Orbit.Pages.DucksOfSumoArenaPage"
-             Title="DucksOfSumoArenaPage">
-    
+             Title="Duck or be ducked">
+
     <Grid>
         <!--<Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -14,16 +14,11 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>-->
 
-    <!--</Grid>
+        <!--</Grid>
     <Grid>-->
-            <Image
-            Source="space.png"
+        <Image
+            Source="the_void.jpg"
             Aspect="Fill" />
-        
-        <Label 
-            Text="Sumo!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
 
         <engine:GameSceneView
             x:Name="GameView"
@@ -31,11 +26,11 @@
             EndInteraction="OnGameViewEndInteraction" />
 
         <Label
-            Text="O.R.B.I.T"
+            Text="D.U.C.K. S.U.M.O."
             x:Name="TitleLabel"
             FontFamily="SpaceMonoBold"
             TextColor="White"
-            FontSize="80"
+            FontSize="Large"
             HorizontalOptions="Center" />
 
         <HorizontalStackLayout
@@ -67,7 +62,7 @@
                 Released="OnSpeedUpButtonReleased" />
 
         </HorizontalStackLayout>
-        
+
         <Image
             WidthRequest="60"
             HeightRequest="60"
@@ -97,6 +92,7 @@
             </Image.GestureRecognizers>
         </Image>
 
+        <!-- PAUSE MENU -->
         <Border
             BackgroundColor="Black"
             Padding="20"

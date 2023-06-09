@@ -54,6 +54,8 @@
 	  <None Remove="Resources\AppIcon\appicon.svg" />
 	  <None Remove="Resources\AppIcon\appiconfg.svg" />
 	  <None Remove="Resources\EmbeddedResources\saturn_duck.jpg" />
+	  <None Remove="Resources\EmbeddedResources\the_pond.jpg" />
+	  <None Remove="Resources\EmbeddedResources\the_void.jpg" />
 	  <None Remove="Resources\Fonts\SpaceMono-Bold.ttf" />
 	  <None Remove="Resources\Images\fast_forward.svg" />
 	  <None Remove="Resources\Images\fast_rewind.svg" />
@@ -68,6 +70,8 @@
 	  <MauiImage Include="Resources\EmbeddedResources\saturn_duck.jpg">
 	    <CopyToOutputDirectory></CopyToOutputDirectory>
 	  </MauiImage>
+	  <MauiImage Include="Resources\EmbeddedResources\the_pond.jpg" />
+	  <MauiImage Include="Resources\EmbeddedResources\the_void.jpg" />
 	  <!--<MauiSplashScreen Include="Resources\Splash\splash.svg" />-->
 	</ItemGroup>
 

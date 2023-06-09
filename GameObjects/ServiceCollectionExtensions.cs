@@ -15,5 +15,6 @@ public static class ServiceCollectionExtensions
             .AddTransient<Shadow>()
             .AddTransient<Ship>()
             .AddTransient<Sun>()
-            .AddScoped<Thruster>();
+            .AddScoped<Thruster>()
+            .AddTransient<Duck>();
 }
