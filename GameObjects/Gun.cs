@@ -13,7 +13,7 @@ public class Gun : GameObject
         this.gameSceneManager = gameSceneManager;
     }
 
-    public override bool IsCollisionDetectionEnabled => true;
+    public override bool IsCollisionDetectionEnabled => false;
 
     public override void Render(ICanvas canvas, RectF dimensions)
     {

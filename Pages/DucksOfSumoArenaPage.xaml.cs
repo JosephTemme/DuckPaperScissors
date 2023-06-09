@@ -23,7 +23,7 @@ public partial class DucksOfSumoArenaPage : ContentPage
         this.gameSceneManager = gameSceneManager;
         this.userInputManager = userInputManager;
         gameSceneManager.StateChanged += OnGameSceneManagerStateChanged;
-        gameSceneManager.LoadScene<HomeScene>(GameView);
+        gameSceneManager.LoadScene<SumoScene>(GameView);
     }
 
     private async void OnGameSceneManagerStateChanged(object sender, GameStateChangedEventArgs e)
@@ -91,7 +91,7 @@ public partial class DucksOfSumoArenaPage : ContentPage
 
     void OnPlayButtonClicked(object sender, EventArgs e)
     {
-        gameSceneManager.LoadScene<MainScene>(GameView);
+        //gameSceneManager.LoadScene<SumoScene>(GameView);
 
         gameSceneManager.Start();
     }

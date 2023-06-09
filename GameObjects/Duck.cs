@@ -14,7 +14,7 @@ namespace Orbit.GameObjects
         readonly Microsoft.Maui.Graphics.IImage speedUpImage;
         readonly Microsoft.Maui.Graphics.IImage image;
         private readonly IGameSceneManager gameSceneManager;
-        private readonly Thruster thruster;
+        //private readonly Thruster thruster;
         private readonly UserInputManager userInputManager;
         public float angle = 0f;
 
@@ -27,22 +27,51 @@ namespace Orbit.GameObjects
         public Duck(
             IGameSceneManager gameSceneManager,
             //Thruster thruster,
-            Gun gun,
+            //Gun gun,
             Battery battery,
             UserInputManager userInputManager)
         {
-            image = LoadImage("ship_none.png");
-            speedUpImage = LoadImage("ship_forward.png");
-            slowDownImage = LoadImage("ship_reverse.png");
+            image = LoadImage("saturn_duck.jpg");
+            //speedUpImage = LoadImage("ship_forward.png");
+            //slowDownImage = LoadImage("ship_reverse.png");
 
             this.gameSceneManager = gameSceneManager;
             //this.thruster = thruster;
             this.userInputManager = userInputManager;
-            Add(gun);
+            //Add(gun);
             //Add(thruster);
             Add(battery);
 
             //gun.Duck = this;
+
+            //var collision = gameSceneManager.FindCollision(this);
+
+            //if (collision is Planet planet)
+            //{
+            //    planet.OnHit(25);
+            //    CurrentScene.Remove(this);
+
+            //    var remains = this.serviceProvider.GetRequiredService<AsteroidRemains>();
+            //    remains.SetBounds(this.Bounds);
+            //    CurrentScene.Add(remains);
+            //}
+
+            //if (collision is Ship ship)
+            //{
+            //    CurrentScene.Remove(this);
+
+            //    // TODO: Damage the ship;
+            //}
+
+            //// TODO: Allow collision with other asteroids.
+            //if (collision is Asteroid otherAsteroid)
+            //{
+            //    // TODO: Split in to smaller asteroids?
+            //    CurrentScene.Remove(otherAsteroid);
+            //    CurrentScene.Remove(this);
+            //}
+
+            // TODO: remove when off screen.
         }
 
         public override void Render(ICanvas canvas, RectF dimensions)
@@ -57,20 +86,20 @@ namespace Orbit.GameObjects
                 size * 2,
                 size * 2);
 
-            var orbitRadius = Bounds.Width * 3;
+            //var orbitRadius = Bounds.Width * 3;
 
-            canvas.Translate(dimensions.Center.X, dimensions.Center.Y);
-            canvas.Rotate(angle);
-            var image = this.thruster.IsThrusting ? GetImage(userInputManager.TouchMode) : GetImage(TouchMode.None);
-            canvas.DrawImage(image, orbitRadius, 0, Bounds.Width, Bounds.Height);
+            //canvas.Translate(dimensions.Center.X, dimensions.Center.Y);
+            //canvas.Rotate(angle);
+            var image = /*this.thruster.IsThrusting ? GetImage(userInputManager.TouchMode) :*/ GetImage(TouchMode.None);
+            canvas.DrawImage(image, Bounds.X, Bounds.Y, Bounds.Width, Bounds.Height);
 
             //Bounds = WHAT???? Needs to include rotation and translation details ;(
 
             if (DucksOfSumoArenaPage.ShowBounds)
             {
-                canvas.StrokeColor = Colors.OrangeRed;
+                canvas.StrokeColor = Colors.Yellow;
                 canvas.StrokeSize = 4;
-                canvas.DrawEllipse(orbitRadius, 0, Bounds.Width, Bounds.Height);
+                canvas.DrawEllipse(Bounds.X, Bounds.Y, Bounds.Width, Bounds.Height);
             }
         }
 
@@ -78,13 +107,13 @@ namespace Orbit.GameObjects
         {
             base.Update(millisecondsSinceLastUpdate);
 
-            angle += this.thruster.Thrust;
+            //angle += this.thruster.Thrust;
         }
 
         private Microsoft.Maui.Graphics.IImage GetImage(TouchMode touchMode) => touchMode switch
         {
-            TouchMode.SlowDown => slowDownImage,
-            TouchMode.SpeedUp => speedUpImage,
+            //TouchMode.SlowDown => slowDownImage,
+            //TouchMode.SpeedUp => speedUpImage,
             _ => image
         };
     }

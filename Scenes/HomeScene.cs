@@ -6,12 +6,12 @@ namespace Orbit.Scenes;
 public class HomeScene : GameScene
 {
     public HomeScene(
-        Duck duck,
+        Ship ship,
         Sun sun,
-        Pond pond)
+        Planet planet)
     {
         Add(sun);
-        Add(pond);
-        Add(duck);
+        Add(ship);
+        Add(planet);
     }
 }
