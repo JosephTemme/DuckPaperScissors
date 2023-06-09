@@ -38,9 +38,9 @@ public partial class DucksOfSumoArenaPage : ContentPage
                 break;
 
             case GameState.Started:
-                await Task.WhenAll(
-                    Play.ScaleTo(0, 250, Easing.SinOut),
-                    TitleLabel.FadeTo(0, 500, Easing.SinOut));
+                //await Task.WhenAll(
+                //    Play.ScaleTo(0, 250, Easing.SinOut),
+                //    TitleLabel.FadeTo(0, 500, Easing.SinOut));
 
                 Pause.IsVisible = true;
                 PauseMenu.IsVisible = false;
@@ -123,6 +123,7 @@ public partial class DucksOfSumoArenaPage : ContentPage
 
     void OnQuitButtonClicked(object sender, EventArgs e)
     {
+        gameSceneManager.GameOver();
         gameSceneManager.LoadScene<HomeScene>(GameView);
     }
 

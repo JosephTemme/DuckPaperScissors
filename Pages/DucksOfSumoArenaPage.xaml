@@ -4,8 +4,19 @@
              xmlns:engine="clr-namespace:Orbit.Engine;assembly=Orbit.Engine"
              x:Class="Orbit.Pages.DucksOfSumoArenaPage"
              Title="DucksOfSumoArenaPage">
+    
     <Grid>
-        <Image
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>-->
+
+    <!--</Grid>
+    <Grid>-->
+            <Image
             Source="space.png"
             Aspect="Fill" />
         
@@ -37,9 +48,8 @@
                 ImageSource="fast_rewind.png"
                 BackgroundColor="White"
                 CornerRadius="30"
-                WidthRequest="80"
-                HeightRequest="80"
-                VerticalOptions="Center"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"
                 SemanticProperties.Description="Slow down."
                 SemanticProperties.Hint="Slow the ship down."
                 Pressed="OnSlowDownButtonPressed"
@@ -49,9 +59,8 @@
                 ImageSource="fast_forward.png"
                 BackgroundColor="White"
                 CornerRadius="30"
-                WidthRequest="80"
-                HeightRequest="80"
-                VerticalOptions="Center"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"
                 SemanticProperties.Description="Speed up."
                 SemanticProperties.Hint="Speed the ship up."
                 Pressed="OnSpeedUpButtonPressed"
