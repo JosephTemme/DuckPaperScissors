@@ -1,4 +1,4 @@
-namespace DuckPaperScissors;
+namespace Orbit;
 
 public partial class DuckDuelPage : ContentPage
 {

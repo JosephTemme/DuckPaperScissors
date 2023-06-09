@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace DuckPaperScissors;
+namespace Orbit;
 
 public class Program
 {

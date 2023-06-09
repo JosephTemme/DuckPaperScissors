@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace DuckPaperScissors;
+namespace Orbit;
 
 [Application]
 public class MainApplication : MauiApplication

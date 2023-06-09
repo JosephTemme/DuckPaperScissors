@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DuckPaperScissors.MainPage">
+             x:Class="Orbit.MainPage">
 
     <ScrollView>
         <VerticalStackLayout
@@ -45,9 +45,16 @@
 
             <Button
                 x:Name="NewDuelBtn"
-                Text="Click ME to DUEL"
+                Text="Click ME to DUEL!"
                 SemanticProperties.Hint="Duel"
                 Clicked="OnNewDuelClicked"
+                HorizontalOptions="Center" />
+
+            <Button
+                x:Name="NewTangoBtn"
+                Text="Click ME to tango!"
+                SemanticProperties.Hint="Duel"
+                Clicked="OnNewTangoClicked"
                 HorizontalOptions="Center" />
         </VerticalStackLayout>
     </ScrollView>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:engine="clr-namespace:Orbit.Engine;assembly=Orbit.Engine"
+             x:Class="Orbit.Pages.DucksOfSumoArenaPage"
+             Title="DucksOfSumoArenaPage">
+    <Grid>
+        <Image
+            Source="space.png"
+            Aspect="Fill" />
+        
+        <Label 
+            Text="Sumo!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <engine:GameSceneView
+            x:Name="GameView"
+            StartInteraction="OnGameViewStartInteraction"
+            EndInteraction="OnGameViewEndInteraction" />
+
+        <Label
+            Text="O.R.B.I.T"
+            x:Name="TitleLabel"
+            FontFamily="SpaceMonoBold"
+            TextColor="White"
+            FontSize="80"
+            HorizontalOptions="Center" />
+
+        <HorizontalStackLayout
+            x:Name="ButtonPanel"
+            VerticalOptions="End"
+            IsVisible="false"
+            Margin="50"
+            Spacing="40">
+            <Button
+                ImageSource="fast_rewind.png"
+                BackgroundColor="White"
+                CornerRadius="30"
+                WidthRequest="80"
+                HeightRequest="80"
+                VerticalOptions="Center"
+                SemanticProperties.Description="Slow down."
+                SemanticProperties.Hint="Slow the ship down."
+                Pressed="OnSlowDownButtonPressed"
+                Released="OnSlowDownButtonReleased" />
+
+            <Button
+                ImageSource="fast_forward.png"
+                BackgroundColor="White"
+                CornerRadius="30"
+                WidthRequest="80"
+                HeightRequest="80"
+                VerticalOptions="Center"
+                SemanticProperties.Description="Speed up."
+                SemanticProperties.Hint="Speed the ship up."
+                Pressed="OnSpeedUpButtonPressed"
+                Released="OnSpeedUpButtonReleased" />
+
+        </HorizontalStackLayout>
+        
+        <Image
+            WidthRequest="60"
+            HeightRequest="60"
+            VerticalOptions="Center"
+            Source="play.png"
+            SemanticProperties.Description="Play button."
+            SemanticProperties.Hint="Start the game."
+            x:Name="Play">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer
+                    Tapped="OnPlayButtonClicked" />
+            </Image.GestureRecognizers>
+        </Image>
+
+        <Image
+            WidthRequest="30"
+            HeightRequest="30"
+            VerticalOptions="Start"
+            Source="pause.png"
+            x:Name="Pause"
+            SemanticProperties.Description="Pause button."
+            SemanticProperties.Hint="Pause the game."
+            IsVisible="False">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer
+                    Tapped="OnPauseButtonClicked" />
+            </Image.GestureRecognizers>
+        </Image>
+
+        <Border
+            BackgroundColor="Black"
+            Padding="20"
+            x:Name="PauseMenu"
+            StrokeShape="RoundRectangle 10"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            IsVisible="False">
+            <VerticalStackLayout
+                WidthRequest="300"
+                Spacing="10">
+                <Label
+                    Text="PAUSED"
+                    TextColor="White"
+                    FontSize="20"
+                    HorizontalOptions="Center"/>
+
+                <Button
+                    TextColor="Black"
+                    BackgroundColor="White"
+                    Text="RESUME"
+                    Clicked="OnResumeButtonClicked" />
+
+                <HorizontalStackLayout
+                    WidthRequest="300">
+                    <Label
+                        Text="Show debug"
+                        VerticalOptions="Center"
+                        TextColor="White"
+                        WidthRequest="200"/>
+
+                    <Switch
+                        Toggled="OnDebugSwitchToggled"
+                        HorizontalOptions="End"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout
+                    WidthRequest="300">
+                    <Label
+                        Text="Show buttons"
+                        VerticalOptions="Center"
+                        TextColor="White"
+                        WidthRequest="200"/>
+
+                    <Switch
+                        Toggled="OnShowButtonsSwitchToggled"
+                        HorizontalOptions="End"/>
+                </HorizontalStackLayout>
+
+                <Button
+                    TextColor="Black"
+                    BackgroundColor="White"
+                    Text="QUIT"
+                    Clicked="OnQuitButtonClicked" />
+            </VerticalStackLayout>
+        </Border>
+
+    </Grid>
+</ContentPage>

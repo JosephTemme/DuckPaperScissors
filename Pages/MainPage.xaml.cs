@@ -1,14 +1,30 @@
-﻿//using CommunityToolkit.Maui.Alerts;
+﻿using Orbit.Engine;
 
-namespace DuckPaperScissors;
+namespace Orbit;
 
 public partial class MainPage : ContentPage
 {
+    private readonly IGameSceneManager gameSceneManager;
+    private readonly UserInputManager userInputManager;
     int count = 0;
 
     public MainPage()
     {
         InitializeComponent();
+    }
+
+    public MainPage(IGameSceneManager gameSceneManager,
+                    UserInputManager userInputManager)
+    {
+        InitializeComponent();
+
+        this.gameSceneManager = gameSceneManager;
+        this.userInputManager = userInputManager;
+    }
+
+    private async void OnNewTangoClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("DuckDuelPage"/*, Dictionary<string, object>*/);
     }
 
     private async void OnNewDuelClicked(object sender, EventArgs e)
@@ -37,7 +53,13 @@ public partial class MainPage : ContentPage
         //    .Show(cancellationTokenSource.Token);
 
         //OpenWindow
-        await Shell.Current.GoToAsync("DuckDuelPage"/*, Dictionary<string, object>*/);
+
+        var navParams = new Dictionary<string, object>
+        {
+            { "gameSceneManager", gameSceneManager },
+            { "userInputManager", userInputManager}
+        };
+        await Shell.Current.GoToAsync("DucksOfSumoArenaPage", navParams);
     }
 
     private void OnCounterClicked(object sender, EventArgs e)
