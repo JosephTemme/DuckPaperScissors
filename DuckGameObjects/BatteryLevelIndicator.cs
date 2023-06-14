@@ -1,15 +1,15 @@
-﻿using Orbit.Engine;
+﻿using DuckPaperScissors.DuckGameObjects;
+using Orbit.Engine;
 
-namespace Orbit.GameObjects;
+namespace DuckPaperScissors.GameObjects;
 
-public class PlanetHealthIndicator : GameObject
+public class BatteryLevelIndicator : DuckGameObject
 {
-    private readonly Planet planet;
+    private readonly Battery battery;
 
-    public PlanetHealthIndicator(
-		Planet planet)
-	{
-        this.planet = planet;
+    public BatteryLevelIndicator(Battery battery)
+    {
+        this.battery = battery;
     }
 
     public override void Render(ICanvas canvas, RectF dimensions)
@@ -19,16 +19,16 @@ public class PlanetHealthIndicator : GameObject
         float height = dimensions.Height / 2;
         float initialY = height / 2;
 
-        canvas.Translate(dimensions.Width - 60, dimensions.Center.Y);
+        canvas.Translate(0, dimensions.Center.Y);
         canvas.StrokeSize = 20;
         canvas.StrokeColor = Colors.Gray;
         canvas.DrawLine(30, -initialY, 30, initialY);
 
-        float actualLevelHeight = height * (this.planet.HealthPoints / this.planet.MaxHealthPoints);
+        float actualLevelHeight = height * this.battery.BatteryLevel;
         float y = height - actualLevelHeight;
 
         canvas.StrokeSize = 20;
-        canvas.StrokeColor = Colors.DarkRed;
+        canvas.StrokeColor = Colors.DarkBlue;
         canvas.DrawLine(30, y - initialY, 30, initialY);
     }
 }

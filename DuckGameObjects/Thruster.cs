@@ -1,8 +1,9 @@
-﻿using Orbit.Engine;
+﻿using DuckPaperScissors.DuckGameObjects;
+using Orbit.Engine;
 
-namespace Orbit.GameObjects;
+namespace DuckPaperScissors.GameObjects;
 
-public class Thruster : GameObject
+public class Thruster : DuckGameObject
 {
     private readonly Battery battery;
     private readonly UserInputManager userInputManager;
@@ -11,7 +12,7 @@ public class Thruster : GameObject
     public Thruster(
         Battery battery,
         UserInputManager userInputManager)
-	{
+    {
         this.battery = battery;
         this.userInputManager = userInputManager;
     }

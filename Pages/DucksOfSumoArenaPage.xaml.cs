@@ -1,141 +1,216 @@
+//using GameController;
+using DuckPaperScissors.Scenes;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Input;
 using Orbit.Engine;
-using Orbit.Scenes;
 
-namespace Orbit.Pages;
+#if ANDROID
+using AndroidX.AppCompat.Widget;
+#elif IOS || MACCATALYST
+using UIKit;
+#elif WINDOWS
+//using Microsoft.UI.Xaml.Controls;
+//using Windows.UI.Core;
+#endif
 
-public partial class DucksOfSumoArenaPage : ContentPage
+namespace DuckPaperScissors.Pages
 {
-    private readonly IGameSceneManager gameSceneManager;
-    private readonly UserInputManager userInputManager;
 
-    public static bool ShowBounds { get; private set; } = false;
-
-    public DucksOfSumoArenaPage()
+    public partial class DucksOfSumoArenaPage : ContentPage
     {
-        InitializeComponent();
-    }
+        private readonly IGameSceneManager gameSceneManager;
+        private readonly UserInputManager userInputManager;
 
-    public DucksOfSumoArenaPage(IGameSceneManager gameSceneManager,
-                                UserInputManager userInputManager)
-    {
-        InitializeComponent();
+        public static bool ShowBounds { get; private set; } = false;
 
-        this.gameSceneManager = gameSceneManager;
-        this.userInputManager = userInputManager;
-        gameSceneManager.StateChanged += OnGameSceneManagerStateChanged;
-        gameSceneManager.LoadScene<SumoScene>(GameView);
-    }
-
-    private async void OnGameSceneManagerStateChanged(object sender, GameStateChangedEventArgs e)
-    {
-        switch (e.State)
+        public DucksOfSumoArenaPage()
         {
-            case GameState.Loaded:
-                Pause.IsVisible = false;
-                PauseMenu.IsVisible = false;
-                Play.IsVisible = true;
-                TitleLabel.IsVisible = true;
-                break;
-
-            case GameState.Started:
-                //await Task.WhenAll(
-                //    Play.ScaleTo(0, 250, Easing.SinOut),
-                //    TitleLabel.FadeTo(0, 500, Easing.SinOut));
-
-                Pause.IsVisible = true;
-                PauseMenu.IsVisible = false;
-                Play.IsVisible = false;
-                TitleLabel.IsVisible = false;
-
-                Play.Scale = 1;
-                TitleLabel.Opacity = 1;
-                break;
-
-            case GameState.Paused:
-                PauseMenu.IsVisible = true;
-                TitleLabel.IsVisible = false;
-                break;
-
-            case GameState.GameOver:
-                await DisplayAlert("Game over", "", "Boo");
-
-                gameSceneManager.LoadScene<HomeScene>(GameView);
-                break;
-
-            default:
-                break;
+            InitializeComponent();
         }
-    }
 
-    void OnGameViewEndInteraction(object sender, TouchEventArgs e)
-    {
-        userInputManager.FinishTouch();
-    }
+        //    // Attach event handlers to the desired controller buttons or analog sticks
+        //    GamePad.LeftThumbStick.PositionChanged += LeftThumbStick_PositionChanged;
+        //    GamePad.Buttons.XButton.Pressed += XButton_Pressed;
+        //    // Register other desired controller event handlers
+        //}
 
-    void OnGameViewStartInteraction(object sender, TouchEventArgs e)
-    {
-        userInputManager.HandleTouch(e.Touches.First().X, GameView.Width);
-    }
+        //private void LeftThumbStick_PositionChanged(object sender, PositionChangedEventArgs<Vector2> e)
+        //{
+        //    // Handle left thumbstick position change
+        //    // Perform corresponding action in the game based on the new position
+        //}
 
-    void OnPauseButtonClicked(object sender, EventArgs e)
-    {
-        if (gameSceneManager.State == GameState.Paused)
+        //private void XButton_Pressed(object sender, EventArgs e)
+        //{
+        //    // Handle X button press
+        //    // Perform corresponding action in the game
+        //}
+
+        public DucksOfSumoArenaPage(IGameSceneManager gameSceneManager,
+                                    UserInputManager userInputManager)
+        {
+            InitializeComponent();
+
+            this.gameSceneManager = gameSceneManager;
+            this.userInputManager = userInputManager;
+            gameSceneManager.StateChanged += OnGameSceneManagerStateChanged;
+            gameSceneManager.LoadScene<SumoScene>(GameView);
+            //#if WINDOWS
+            var handler = mauiView.Handler;
+            UIElement? nativeView = handler?.PlatformView as UIElement;
+            if (nativeView != null)
+            {
+                nativeView.KeyDown += this.DuckView_KeyDown;
+                nativeView.KeyUp += this.DuckView_KeyUp;
+                nativeView.PreviewKeyDown += this.DuckView_PreviewKeyDown;
+            }
+            //#endif
+        }
+
+        private void DuckView_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Windows.System.VirtualKey.Up:
+
+                    break;
+                default:
+                    break;
+
+            }
+        }
+
+        private void DuckView_KeyUp(object sender, KeyRoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void DuckView_PreviewKeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private async void OnGameSceneManagerStateChanged(object sender, GameStateChangedEventArgs e)
+        {
+            switch (e.State)
+            {
+                case GameState.Loaded:
+                    Pause.IsVisible = false;
+                    PauseMenu.IsVisible = false;
+                    Play.IsVisible = true;
+                    TitleLabel.IsVisible = true;
+                    break;
+
+                case GameState.Started:
+                    //await Task.WhenAll(
+                    //    Play.ScaleTo(0, 250, Easing.SinOut),
+                    //    TitleLabel.FadeTo(0, 500, Easing.SinOut));
+
+                    Pause.IsVisible = true;
+                    PauseMenu.IsVisible = false;
+                    Play.IsVisible = false;
+                    TitleLabel.IsVisible = false;
+
+                    Play.Scale = 1;
+                    TitleLabel.Opacity = 1;
+                    break;
+
+                case GameState.Paused:
+                    PauseMenu.IsVisible = true;
+                    TitleLabel.IsVisible = false;
+                    break;
+
+                case GameState.GameOver:
+                    await DisplayAlert("Game over", "", "Boo");
+                    //gameSceneManager.GameOver();
+                    gameSceneManager.LoadScene<SumoScene>(GameView);
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        void OnGameViewEndInteraction(object sender, TouchEventArgs e)
+        {
+            userInputManager.FinishTouch();
+        }
+
+        void OnGameViewStartInteraction(object sender, TouchEventArgs e)
+        {
+            userInputManager.HandleTouch(e.Touches.First().X, GameView.Width);
+        }
+
+        void OnPauseButtonClicked(object sender, EventArgs e)
+        {
+            if (gameSceneManager.State == GameState.Paused)
+            {
+                gameSceneManager.Start();
+            }
+            else
+            {
+                gameSceneManager.Pause();
+            }
+        }
+
+        void OnPlayButtonClicked(object sender, EventArgs e)
+        {
+            //gameSceneManager.LoadScene<SumoScene>(GameView);
+
+            gameSceneManager.Start();
+        }
+
+        void OnUpButtonClicked(object sender, EventArgs args)
+        {
+            userInputManager.SetTouchMode(TouchMode.SlowDown);
+        }
+
+        void OnUpButtonReleased(object sender, EventArgs args)
+        {
+            userInputManager.SetTouchMode(TouchMode.None);
+        }
+
+        void OnSlowDownButtonPressed(object sender, EventArgs e)
+        {
+            userInputManager.SetTouchMode(TouchMode.SlowDown);
+        }
+
+        void OnSlowDownButtonReleased(object sender, EventArgs e)
+        {
+            userInputManager.SetTouchMode(TouchMode.None);
+        }
+
+        void OnSpeedUpButtonPressed(object sender, EventArgs e)
+        {
+            userInputManager.SetTouchMode(TouchMode.SpeedUp);
+        }
+
+        void OnSpeedUpButtonReleased(object sender, EventArgs e)
+        {
+            userInputManager.SetTouchMode(TouchMode.None);
+        }
+
+        void OnResumeButtonClicked(object sender, EventArgs e)
         {
             gameSceneManager.Start();
         }
-        else
+
+        void OnQuitButtonClicked(object sender, EventArgs e)
         {
-            gameSceneManager.Pause();
+            gameSceneManager.GameOver();
+            gameSceneManager.LoadScene<HomeScene>(GameView);
         }
-    }
 
-    void OnPlayButtonClicked(object sender, EventArgs e)
-    {
-        //gameSceneManager.LoadScene<SumoScene>(GameView);
+        void OnDebugSwitchToggled(object sender, ToggledEventArgs e)
+        {
+            ShowBounds = e.Value;
+        }
 
-        gameSceneManager.Start();
-    }
+        void OnShowButtonsSwitchToggled(object sender, ToggledEventArgs e)
+        {
+            userInputManager.SetInputMode(e.Value ? UserInputMode.Buttons : UserInputMode.TouchOnScreen);
 
-    void OnSlowDownButtonPressed(object sender, EventArgs e)
-    {
-        userInputManager.SetTouchMode(TouchMode.SlowDown);
-    }
-
-    void OnSlowDownButtonReleased(object sender, EventArgs e)
-    {
-        userInputManager.SetTouchMode(TouchMode.None);
-    }
-
-    void OnSpeedUpButtonPressed(object sender, EventArgs e)
-    {
-        userInputManager.SetTouchMode(TouchMode.SpeedUp);
-    }
-
-    void OnSpeedUpButtonReleased(object sender, EventArgs e)
-    {
-        userInputManager.SetTouchMode(TouchMode.None);
-    }
-
-    void OnResumeButtonClicked(object sender, EventArgs e)
-    {
-        gameSceneManager.Start();
-    }
-
-    void OnQuitButtonClicked(object sender, EventArgs e)
-    {
-        gameSceneManager.GameOver();
-        gameSceneManager.LoadScene<HomeScene>(GameView);
-    }
-
-    void OnDebugSwitchToggled(object sender, ToggledEventArgs e)
-    {
-        ShowBounds = e.Value;
-    }
-
-    void OnShowButtonsSwitchToggled(object sender, ToggledEventArgs e)
-    {
-        userInputManager.SetInputMode(e.Value ? UserInputMode.Buttons : UserInputMode.TouchOnScreen);
-
-        ButtonPanel.IsVisible = e.Value;
+            ButtonPanel.IsVisible = e.Value;
+        }
     }
 }

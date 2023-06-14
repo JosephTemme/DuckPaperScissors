@@ -1,8 +1,9 @@
-﻿using Orbit.Engine;
+﻿using DuckPaperScissors.DuckGameObjects;
+using Orbit.Engine;
 
-namespace Orbit.GameObjects;
+namespace DuckPaperScissors.GameObjects;
 
-public class AsteroidRemains : GameObject
+public class AsteroidRemains : DuckGameObject
 {
     Microsoft.Maui.Graphics.IImage image;
     private float opacity = 1f;

@@ -1,14 +1,17 @@
-﻿using Orbit.Engine;
-using Orbit.Pages;
+﻿using DuckPaperScissors.DuckGameObjects;
+using DuckPaperScissors.Pages;
+using Microsoft.Maui.Graphics.Win2D;
+using Orbit.Engine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Orbit.GameObjects
+namespace DuckPaperScissors.GameObjects
 {
-    public class Duck : GameObject
+    public class Duck : DuckGameObject
     {
         readonly Microsoft.Maui.Graphics.IImage slowDownImage;
         readonly Microsoft.Maui.Graphics.IImage speedUpImage;
@@ -29,6 +32,7 @@ namespace Orbit.GameObjects
             //Thruster thruster,
             //Gun gun,
             Battery battery,
+            BB8Mount bb8Mount,
             UserInputManager userInputManager)
         {
             image = LoadImage("saturn_duck.jpg");
@@ -41,6 +45,9 @@ namespace Orbit.GameObjects
             //Add(gun);
             //Add(thruster);
             Add(battery);
+
+            bb8Mount.Duck = this;
+            bb8Mount.Add(bb8Mount);
 
             //gun.Duck = this;
 

@@ -1,9 +1,9 @@
-﻿using Orbit.Engine;
-using Orbit.GameObjects;
-using Orbit.Pages;
-using Orbit.Scenes;
+﻿using DuckPaperScissors.GameObjects;
+using DuckPaperScissors.Pages;
+using DuckPaperScissors.Scenes;
+using Orbit.Engine;
 
-namespace Orbit;
+namespace DuckPaperScissors;
 
 public static class MauiProgram
 {

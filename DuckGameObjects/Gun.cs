@@ -1,8 +1,9 @@
-﻿using Orbit.Engine;
+﻿using DuckPaperScissors.DuckGameObjects;
+using Orbit.Engine;
 
-namespace Orbit.GameObjects;
+namespace DuckPaperScissors.GameObjects;
 
-public class Gun : GameObject
+public class Gun : DuckGameObject
 {
     private readonly IGameSceneManager gameSceneManager;
 

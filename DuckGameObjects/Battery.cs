@@ -1,8 +1,9 @@
-﻿using Orbit.Engine;
+﻿using DuckPaperScissors.DuckGameObjects;
+using Orbit.Engine;
 
-namespace Orbit.GameObjects;
+namespace DuckPaperScissors.GameObjects;
 
-public class Battery : GameObject
+public class Battery : DuckGameObject
 {
     private const float batteryMaximum = 100f;
     private float batteryLevel = 100f;

@@ -1,8 +1,9 @@
-﻿using Orbit.Engine;
+﻿using DuckPaperScissors.DuckGameObjects;
+using Orbit.Engine;
 
-namespace Orbit.GameObjects;
+namespace DuckPaperScissors.GameObjects;
 
-public class Sun : GameObject
+public class Sun : DuckGameObject
 {
     Microsoft.Maui.Graphics.IImage image;
 

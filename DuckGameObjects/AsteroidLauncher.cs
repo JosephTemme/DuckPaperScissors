@@ -1,8 +1,9 @@
-﻿using Orbit.Engine;
+﻿using DuckPaperScissors.DuckGameObjects;
+using Orbit.Engine;
 
-namespace Orbit.GameObjects;
+namespace DuckPaperScissors.GameObjects;
 
-public class AsteroidLauncher : GameObject
+public class AsteroidLauncher : DuckGameObject
 {
     private readonly IServiceProvider serviceProvider;
     private readonly IGameSceneManager gameSceneManager;

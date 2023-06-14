@@ -2,7 +2,7 @@
 using Android.Content.PM;
 using Android.OS;
 
-namespace Orbit;
+namespace DuckPaperScissors;
 
 [Activity(Theme = "@style/Maui.SplashTheme",
     MainLauncher = true,

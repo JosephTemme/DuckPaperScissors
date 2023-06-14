@@ -1,4 +1,4 @@
-﻿namespace Orbit.GameObjects;
+﻿namespace DuckPaperScissors.GameObjects;
 
 public static class ServiceCollectionExtensions
 {
@@ -17,5 +17,6 @@ public static class ServiceCollectionExtensions
             .AddTransient<Sun>()
             .AddScoped<Thruster>()
             .AddTransient<Duck>()
-            .AddTransient<Pond>();
+            .AddTransient<Pond>()
+            .AddTransient<BB8Mount>();
 }

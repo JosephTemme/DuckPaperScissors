@@ -1,6 +1,6 @@
-﻿using Orbit.Pages;
+﻿using DuckPaperScissors.Pages;
 
-namespace Orbit;
+namespace DuckPaperScissors;
 
 public partial class AppShell : Shell
 {

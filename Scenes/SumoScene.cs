@@ -1,12 +1,12 @@
-﻿using Orbit.Engine;
-using Orbit.GameObjects;
+﻿using DuckPaperScissors.GameObjects;
+using Orbit.Engine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Orbit.Scenes
+namespace DuckPaperScissors.Scenes
 {
     public class SumoScene : GameScene
     {

@@ -1,9 +1,10 @@
-﻿using Orbit.Engine;
-using Orbit.Pages;
+﻿using DuckPaperScissors.DuckGameObjects;
+using DuckPaperScissors.Pages;
+using Orbit.Engine;
 
-namespace Orbit.GameObjects;
+namespace DuckPaperScissors.GameObjects;
 
-public class Ship : GameObject
+public class Ship : DuckGameObject
 {
     readonly Microsoft.Maui.Graphics.IImage slowDownImage;
     readonly Microsoft.Maui.Graphics.IImage speedUpImage;

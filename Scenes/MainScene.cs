@@ -1,7 +1,7 @@
-﻿using Orbit.Engine;
-using Orbit.GameObjects;
+﻿using DuckPaperScissors.GameObjects;
+using Orbit.Engine;
 
-namespace Orbit;
+namespace DuckPaperScissors;
 
 public class MainScene : GameScene
 {

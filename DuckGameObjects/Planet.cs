@@ -1,9 +1,10 @@
-﻿using Orbit.Engine;
-using Orbit.Pages;
+﻿using DuckPaperScissors.DuckGameObjects;
+using DuckPaperScissors.Pages;
+using Orbit.Engine;
 
-namespace Orbit.GameObjects;
+namespace DuckPaperScissors.GameObjects;
 
-public class Planet : GameObject
+public class Planet : DuckGameObject
 {
     Microsoft.Maui.Graphics.IImage image;
     float angle = 0;

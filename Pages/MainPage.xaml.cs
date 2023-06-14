@@ -1,6 +1,6 @@
 ﻿using Orbit.Engine;
 
-namespace Orbit;
+namespace DuckPaperScissors;
 
 public partial class MainPage : ContentPage
 {
