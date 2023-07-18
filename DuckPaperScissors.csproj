@@ -86,7 +86,7 @@
 	  <MauiImage Include="Resources\AppIcon\minebasketducks.jpeg" />
     <EmbeddedResource Include="Resources\EmbeddedResources\saturn_duck.jpg" />
     <EmbeddedResource Include="Resources\EmbeddedResources\the_pond.jpg" />
-	  <EmbeddedResource Include="Resources\EmbeddedResources\the_void.jpg" />
+	  <MauiImage Include="Resources\EmbeddedResources\the_void.jpg" />
 	  <!--<MauiSplashScreen Include="Resources\Splash\splash.svg" />-->
 	</ItemGroup>
 
